@@ -28,6 +28,10 @@ const noteRouter = require("./routes/notes");
 app.use("/user", userRouter);
 app.use("/note", noteRouter);
 
+app.use("/test", (req, res) => {
+  res.send("Hello World");
+});
+
 connectDb()
   .then(() => {
     console.log("Database connected successfully");
