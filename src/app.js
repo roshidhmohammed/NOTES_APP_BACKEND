@@ -25,12 +25,14 @@ app.use(cookieParser())
 const userRouter = require("./routes/user");
 const noteRouter = require("./routes/notes");
 
+app.use("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.use("/user", userRouter);
 app.use("/note", noteRouter);
 
-app.use("/test", (req, res) => {
-  res.send("Hello World");
-});
+
 
 connectDb()
   .then(() => {
